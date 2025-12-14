@@ -45,7 +45,8 @@ services:
       - ./nginx/certs:/certs:ro
       - ./nginx/site.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
-      - goosebit
+      goosebit:
+        condition: service_healthy
 
   device1:
     container_name: goosebit-demo-device1
